@@ -1,0 +1,68 @@
+# Polymath MCP 지식 카테고리
+
+## 완료된 카테고리 (29개 문서)
+
+### 00-Fusion-Patterns (7개)
+- metaphorical-transfer    은유적 전이
+- structural-isomorphism   구조적 동형
+- assumption-subversion    전제 전복
+- scale-jump               스케일 점프
+- temporal-transformation  시간축 변환
+- boundary-concept         경계 개념
+- dialectical-synthesis    변증법적 종합
+
+### 01-Fusion-Cases (7개)
+- evolutionary-game-theory     진화 게임이론
+- information-thermodynamics   정보 열역학
+- cognitive-science            인지과학
+- behavioral-economics         행동경제학
+- network-science              네트워크 과학
+- computational-neuroscience   계산신경과학
+- bioinformatics               생물정보학
+
+### 02-Concepts (5개)
+- entropy       엔트로피
+- equilibrium   평형
+- emergence     창발
+- feedback      피드백
+- optimization  최적화
+
+### 03-Polymaths (5개)
+- leonardo-da-vinci    레오나르도 다빈치
+- gottfried-leibniz    라이프니츠
+- john-von-neumann     폰 노이만
+- herbert-simon        허버트 사이먼
+- claude-shannon       클로드 섀넌
+
+### 04-Big-Questions (5개)
+- consciousness       의식의 본질
+- complexity-origins  복잡성의 기원
+- free-will           자유의지
+- origin-of-life      생명의 기원
+- nature-of-time      시간의 본질
+
+---
+
+## 추천 추가 카테고리
+
+| 카테고리 | 용도 |
+|----------|------|
+| 05-Domains   | 30개 학문 분야별 핵심 지식 |
+| 06-Theories  | 주요 이론/프레임워크 |
+| 07-Methods   | 연구 방법론 |
+| 08-Personal  | 개인 연구노트/아이디어 |
+| 09-Papers    | 논문 요약/핵심 추출 |
+| 10-Projects  | 진행 중 프로젝트 맥락 |
+
+---
+
+## 실행 명령어
+
+```bash
+cd C:\Users\sshin\Documents\polymath-mcp
+pip install -e .
+python scripts/index_knowledge.py --clear
+```
+
+## Repository
+https://github.com/seanshin0214/polymath-mcp.git
