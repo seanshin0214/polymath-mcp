@@ -6,6 +6,7 @@ domains: [cybernetics, control_theory, biology, economics, psychology, ecology]
 etymology: "Feed back" - return of output to input
 first_formulation: Norbert Wiener (1948)
 related_concepts: [control, homeostasis, regulation, loops, stability, amplification]
+links: "[[equilibrium]], [[emergence]], [[optimization]], [[entropy]], [[herbert-simon]]"
 importance: foundational
 version: 1.0
 status: World-Class
@@ -214,6 +215,8 @@ dx/dt = Ax
 ---
 
 ## 5. 개념적 연결
+
+**관련 문서**: [[equilibrium]] | [[emergence]] | [[optimization]] | [[entropy]] | [[herbert-simon]] | [[network-science]]
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐

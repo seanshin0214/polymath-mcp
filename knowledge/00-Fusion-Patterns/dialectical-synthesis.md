@@ -3,6 +3,7 @@ title: 변증법적 통합
 key: dialectical_synthesis
 category: fusion_pattern
 related_patterns: [assumption_subversion, boundary_concept, structural_isomorphism]
+links: "[[assumption-subversion]], [[boundary-concept]], [[structural-isomorphism]], [[free-will]], [[consciousness]]"
 difficulty: advanced
 version: 1.0
 last_updated: 2024

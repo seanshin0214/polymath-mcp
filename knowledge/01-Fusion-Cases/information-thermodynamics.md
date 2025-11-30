@@ -6,6 +6,7 @@ parent_disciplines: [thermodynamics, information_theory, statistical_mechanics]
 key_fusionists: [Claude Shannon, Rolf Landauer, Charles Bennett, Leo Szilard]
 fusion_year: 1961
 fusion_patterns_used: [structural_isomorphism, dialectical_synthesis, boundary_concept]
+links: "[[entropy]], [[claude-shannon]], [[structural-isomorphism]], [[emergence]], [[complexity-origins]]"
 impact_score: 97
 nobel_related: true
 fields_spawned: [quantum_information, reversible_computing, thermodynamics_of_computation]

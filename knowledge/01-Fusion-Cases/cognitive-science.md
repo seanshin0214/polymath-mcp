@@ -6,6 +6,7 @@ parent_disciplines: [psychology, neuroscience, linguistics, philosophy, artifici
 key_fusionists: [Noam Chomsky, Herbert Simon, Marvin Minsky, George Miller, Allen Newell]
 fusion_year: 1956
 fusion_patterns_used: [boundary_concept, structural_isomorphism, scale_jump, assumption_subversion]
+links: "[[herbert-simon]], [[consciousness]], [[computational-neuroscience]], [[emergence]], [[metaphorical-transfer]]"
 impact_score: 99
 nobel_related: true
 fields_spawned: [cognitive_neuroscience, cognitive_linguistics, human_computer_interaction, cognitive_anthropology]

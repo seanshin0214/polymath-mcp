@@ -6,6 +6,7 @@ domains: [neuroscience, philosophy, physics, psychology, computer_science, quant
 question_type: ontological
 difficulty: hardest
 related_concepts: [emergence, information, qualia, self, free_will]
+links: "[[emergence]], [[computational-neuroscience]], [[free-will]], [[dialectical-synthesis]], [[cognitive-science]]"
 status_of_field: contested
 importance: fundamental
 version: 1.0

@@ -6,6 +6,7 @@ domains: [mathematics, economics, biology, engineering, machine_learning, operat
 etymology: Latin "optimus" (best)
 first_formulation: Fermat, Lagrange, Newton (17-18C)
 related_concepts: [equilibrium, efficiency, fitness, utility, objective_function]
+links: "[[equilibrium]], [[feedback]], [[emergence]], [[entropy]], [[john-von-neumann]]"
 importance: foundational
 version: 1.0
 status: World-Class
@@ -232,6 +233,8 @@ KKT 조건 (제약 있는 경우):
 ---
 
 ## 5. 개념적 연결
+
+**관련 문서**: [[equilibrium]] | [[feedback]] | [[emergence]] | [[entropy]] | [[john-von-neumann]] | [[behavioral-economics]]
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐

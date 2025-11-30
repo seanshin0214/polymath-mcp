@@ -7,6 +7,7 @@ domains: [art, anatomy, engineering, architecture, botany, geology, hydrodynamic
 nationality: Italian (Florence, Milan, Rome, France)
 known_for: [Mona Lisa, Last Supper, Vitruvian Man, anatomical studies, flying machines]
 fusion_pattern: EMIT (Embodied Mental Integration Transfer)
+links: "[[metaphorical-transfer]], [[scale-jump]], [[emergence]], [[gottfried-leibniz]], [[complexity-origins]]"
 polymathy_type: Universal Genius
 importance: paradigmatic
 version: 1.0

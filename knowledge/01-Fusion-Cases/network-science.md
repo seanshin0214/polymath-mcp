@@ -6,6 +6,7 @@ parent_disciplines: [graph_theory, statistical_physics, sociology, computer_scie
 key_fusionists: [Albert-László Barabási, Duncan Watts, Steven Strogatz, Mark Newman]
 fusion_year: 1998
 fusion_patterns_used: [structural_isomorphism, scale_jump, metaphorical_transfer]
+links: "[[emergence]], [[feedback]], [[structural-isomorphism]], [[scale-jump]], [[complexity-origins]]"
 impact_score: 95
 nobel_related: false
 fields_spawned: [computational_social_science, systems_biology, epidemiology_modeling]

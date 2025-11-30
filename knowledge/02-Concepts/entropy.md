@@ -6,6 +6,7 @@ domains: [thermodynamics, information_theory, statistical_mechanics, ecology, ec
 etymology: Greek "entropia" (transformation)
 first_formulation: Rudolf Clausius (1865)
 related_concepts: [information, disorder, uncertainty, complexity, equilibrium]
+links: "[[equilibrium]], [[emergence]], [[information-thermodynamics]], [[claude-shannon]], [[complexity-origins]]"
 importance: foundational
 version: 1.0
 status: World-Class
@@ -224,6 +225,8 @@ Jaynes의 통찰:
 ---
 
 ## 5. 개념적 연결
+
+**관련 문서**: [[equilibrium]] | [[emergence]] | [[information-thermodynamics]] | [[claude-shannon]] | [[complexity-origins]] | [[feedback]]
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐

@@ -3,6 +3,7 @@ title: 스케일 점프
 key: scale_jump
 category: fusion_pattern
 related_patterns: [structural_isomorphism, boundary_concept, assumption_subversion]
+links: "[[structural-isomorphism]], [[boundary-concept]], [[emergence]], [[complexity-origins]], [[network-science]]"
 difficulty: advanced
 version: 1.0
 last_updated: 2024

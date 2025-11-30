@@ -3,6 +3,7 @@ title: 경계 개념
 key: boundary_concept
 category: fusion_pattern
 related_patterns: [structural_isomorphism, metaphorical_transfer, dialectical_synthesis]
+links: "[[structural-isomorphism]], [[metaphorical-transfer]], [[dialectical-synthesis]], [[entropy]], [[claude-shannon]]"
 difficulty: advanced
 version: 1.0
 last_updated: 2024

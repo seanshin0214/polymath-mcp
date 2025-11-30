@@ -6,6 +6,7 @@ domains: [philosophy, neuroscience, physics, psychology, law, ethics]
 question_type: metaphysical
 difficulty: hard
 related_concepts: [determinism, consciousness, causation, responsibility, agency]
+links: "[[consciousness]], [[dialectical-synthesis]], [[assumption-subversion]], [[gottfried-leibniz]], [[behavioral-economics]]"
 status_of_field: contested
 importance: fundamental
 version: 1.0

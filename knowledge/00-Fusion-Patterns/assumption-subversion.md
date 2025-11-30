@@ -3,6 +3,7 @@ title: 전제 전복
 key: assumption_subversion
 category: fusion_pattern
 related_patterns: [dialectical_synthesis, metaphorical_transfer, boundary_concept]
+links: "[[dialectical-synthesis]], [[metaphorical-transfer]], [[boundary-concept]], [[free-will]], [[gottfried-leibniz]]"
 difficulty: advanced
 version: 1.0
 last_updated: 2024

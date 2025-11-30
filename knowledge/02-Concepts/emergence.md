@@ -6,6 +6,7 @@ domains: [complex_systems, philosophy, biology, sociology, physics, neuroscience
 etymology: Latin "emergere" (to arise, come forth)
 first_formulation: G.H. Lewes (1875), C.D. Broad (1925)
 related_concepts: [complexity, self_organization, reductionism, holism, hierarchy]
+links: "[[entropy]], [[equilibrium]], [[feedback]], [[complexity-origins]], [[consciousness]]"
 importance: foundational
 version: 1.0
 status: World-Class
@@ -222,6 +223,8 @@ Anderson의 "More is Different" (1972):
 ---
 
 ## 5. 개념적 연결
+
+**관련 문서**: [[entropy]] | [[equilibrium]] | [[feedback]] | [[complexity-origins]] | [[consciousness]] | [[john-von-neumann]]
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐

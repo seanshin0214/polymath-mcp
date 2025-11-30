@@ -3,6 +3,7 @@ title: 은유적 전이
 key: metaphorical_transfer
 category: fusion_pattern
 related_patterns: [structural_isomorphism, boundary_concept, dialectical_synthesis]
+links: "[[structural-isomorphism]], [[boundary-concept]], [[dialectical-synthesis]], [[cognitive-science]], [[leonardo-da-vinci]]"
 difficulty: intermediate
 ---
 

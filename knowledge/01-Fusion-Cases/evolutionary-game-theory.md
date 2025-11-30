@@ -6,6 +6,7 @@ parent_disciplines: [evolutionary_biology, game_theory, mathematics]
 key_fusionists: [John Maynard Smith, George Price, William Hamilton]
 fusion_year: 1973
 fusion_patterns_used: [structural_isomorphism, metaphorical_transfer, assumption_subversion]
+links: "[[equilibrium]], [[optimization]], [[john-von-neumann]], [[structural-isomorphism]], [[behavioral-economics]]"
 impact_score: 98
 nobel_related: false
 fields_spawned: [evolutionary_economics, evolutionary_psychology, artificial_life]

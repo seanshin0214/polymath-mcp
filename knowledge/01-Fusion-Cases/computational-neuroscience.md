@@ -6,6 +6,7 @@ parent_disciplines: [neuroscience, mathematics, physics, computer_science]
 key_fusionists: [Alan Hodgkin, Andrew Huxley, David Marr, Terrence Sejnowski]
 fusion_year: 1952
 fusion_patterns_used: [structural_isomorphism, scale_jump, boundary_concept]
+links: "[[cognitive-science]], [[consciousness]], [[feedback]], [[scale-jump]], [[emergence]]"
 impact_score: 94
 nobel_related: true
 fields_spawned: [neuromorphic_computing, brain_machine_interface, computational_psychiatry]

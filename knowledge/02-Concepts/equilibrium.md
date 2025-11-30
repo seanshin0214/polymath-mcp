@@ -6,6 +6,7 @@ domains: [physics, chemistry, economics, ecology, game_theory, psychology]
 etymology: Latin "aequilibrium" (equal balance)
 first_formulation: Multiple origins
 related_concepts: [stability, entropy, dynamics, homeostasis, steady_state]
+links: "[[entropy]], [[feedback]], [[optimization]], [[emergence]], [[evolutionary-game-theory]]"
 importance: foundational
 version: 1.0
 status: World-Class
@@ -212,6 +213,8 @@ dx/dt = f(x)
 ---
 
 ## 5. 개념적 연결
+
+**관련 문서**: [[entropy]] | [[feedback]] | [[optimization]] | [[emergence]] | [[evolutionary-game-theory]] | [[behavioral-economics]]
 
 ```
 ┌─────────────────────────────────────────────────────────────────┐

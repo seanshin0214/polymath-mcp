@@ -7,6 +7,7 @@ domains: [mathematics, philosophy, logic, physics, law, theology, linguistics, g
 nationality: German (Leipzig, Hanover)
 known_for: [calculus, binary system, monadology, symbolic logic, characteristica universalis, optimism]
 fusion_pattern: DISCO (Domain Integration through Symbolic Conceptual Organization)
+links: "[[optimization]], [[structural-isomorphism]], [[john-von-neumann]], [[free-will]], [[assumption-subversion]]"
 polymathy_type: Universal Scholar
 importance: paradigmatic
 version: 1.0

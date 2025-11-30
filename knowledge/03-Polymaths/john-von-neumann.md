@@ -7,6 +7,7 @@ domains: [mathematics, physics, computer_science, economics, game_theory, quantu
 nationality: Hungarian-American (Budapest → Princeton)
 known_for: [von Neumann architecture, game theory, quantum mechanics formalization, cellular automata, Monte Carlo method]
 fusion_pattern: LEAP (Lateral Expertise Acquisition and Projection)
+links: "[[evolutionary-game-theory]], [[optimization]], [[entropy]], [[emergence]], [[herbert-simon]], [[claude-shannon]]"
 polymathy_type: Mathematical Universalist
 importance: paradigmatic
 version: 1.0

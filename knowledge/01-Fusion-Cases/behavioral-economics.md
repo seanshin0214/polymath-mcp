@@ -6,6 +6,7 @@ parent_disciplines: [psychology, economics, neuroscience]
 key_fusionists: [Daniel Kahneman, Amos Tversky, Richard Thaler, Herbert Simon]
 fusion_year: 1979
 fusion_patterns_used: [assumption_subversion, empirical_anomaly, boundary_concept]
+links: "[[optimization]], [[equilibrium]], [[assumption-subversion]], [[herbert-simon]], [[cognitive-science]]"
 impact_score: 96
 nobel_related: true
 fields_spawned: [neuroeconomics, behavioral_finance, nudge_policy]

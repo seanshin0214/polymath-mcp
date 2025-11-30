@@ -6,6 +6,7 @@ parent_disciplines: [molecular_biology, computer_science, statistics, mathematic
 key_fusionists: [Margaret Dayhoff, David Lipman, Eugene Myers, Michael Waterman]
 fusion_year: 1965
 fusion_patterns_used: [structural_isomorphism, scale_jump, temporal_transformation]
+links: "[[entropy]], [[optimization]], [[information-thermodynamics]], [[structural-isomorphism]], [[origin-of-life]]"
 impact_score: 96
 nobel_related: true
 fields_spawned: [genomics, proteomics, systems_biology, personalized_medicine]

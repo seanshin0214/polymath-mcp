@@ -6,6 +6,7 @@ domains: [physics, philosophy, cosmology, psychology, neuroscience, thermodynami
 question_type: ontological
 difficulty: hardest
 related_concepts: [entropy, causation, change, consciousness, relativity]
+links: "[[entropy]], [[temporal-transformation]], [[consciousness]], [[free-will]], [[emergence]]"
 status_of_field: contested
 importance: fundamental
 version: 1.0

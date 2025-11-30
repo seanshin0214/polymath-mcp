@@ -3,6 +3,7 @@ title: 구조적 동형
 key: structural_isomorphism
 category: fusion_pattern
 related_patterns: [metaphorical_transfer, scale_jump, boundary_concept]
+links: "[[metaphorical-transfer]], [[scale-jump]], [[boundary-concept]], [[information-thermodynamics]], [[network-science]], [[john-von-neumann]]"
 difficulty: advanced
 version: 3.0
 last_updated: 2024

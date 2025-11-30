@@ -7,6 +7,7 @@ domains: [artificial_intelligence, economics, cognitive_psychology, political_sc
 nationality: American (Milwaukee → Pittsburgh)
 known_for: [bounded rationality, satisficing, General Problem Solver, production systems, Nobel Prize Economics]
 fusion_pattern: LINK (Layered Integration of Nested Knowledge)
+links: "[[cognitive-science]], [[behavioral-economics]], [[optimization]], [[feedback]], [[john-von-neumann]]"
 polymathy_type: Social Science Universalist
 importance: paradigmatic
 version: 1.0

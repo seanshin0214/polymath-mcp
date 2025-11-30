@@ -6,6 +6,7 @@ domains: [complex_systems, physics, biology, chemistry, information_theory, cosm
 question_type: cosmological
 difficulty: hard
 related_concepts: [emergence, entropy, self_organization, evolution, information]
+links: "[[emergence]], [[entropy]], [[scale-jump]], [[network-science]], [[origin-of-life]]"
 status_of_field: active_progress
 importance: fundamental
 version: 1.0

@@ -7,6 +7,7 @@ domains: [information_theory, electrical_engineering, mathematics, cryptography,
 nationality: American (Michigan → MIT → Bell Labs)
 known_for: [information theory, bit, channel capacity, Boolean algebra application, cryptography foundations]
 fusion_pattern: EMIT (Embodied Mental Integration Transfer)
+links: "[[entropy]], [[information-thermodynamics]], [[boundary-concept]], [[emergence]], [[john-von-neumann]]"
 polymathy_type: Engineering Theorist
 importance: paradigmatic
 version: 1.0

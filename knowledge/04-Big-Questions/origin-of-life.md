@@ -6,6 +6,7 @@ domains: [chemistry, biology, physics, geology, astrobiology, information_theory
 question_type: historical
 difficulty: hard
 related_concepts: [entropy, information, complexity, self_organization, evolution]
+links: "[[entropy]], [[complexity-origins]], [[bioinformatics]], [[emergence]], [[information-thermodynamics]]"
 status_of_field: active_progress
 importance: fundamental
 version: 1.0

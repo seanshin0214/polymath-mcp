@@ -3,6 +3,7 @@ title: 시간적 변환
 key: temporal_transformation
 category: fusion_pattern
 related_patterns: [scale_jump, assumption_subversion, dialectical_synthesis]
+links: "[[scale-jump]], [[assumption-subversion]], [[dialectical-synthesis]], [[behavioral-economics]], [[nature-of-time]]"
 difficulty: advanced
 version: 1.0
 last_updated: 2024
