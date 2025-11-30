@@ -1,30 +1,31 @@
 [project]
 name = "polymath-mcp"
 version = "0.1.0"
-description = "Polymath MCP - A fusion thinking support system for concept engineering"
+description = "Polymath MCP - Your Second Brain for Interdisciplinary Knowledge"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.10"
 license = {text = "MIT"}
 authors = [
     {name = "Your Name", email = "your@email.com"}
 ]
-keywords = ["mcp", "rag", "knowledge-graph", "fusion-thinking", "socratic-dialogue"]
+keywords = ["mcp", "rag", "knowledge-graph", "fusion-thinking", "socratic-dialogue", "second-brain"]
 
 dependencies = [
     "mcp>=1.0.0",
-    "fastmcp>=0.1.0",
     "chromadb>=0.4.0",
-    "neo4j>=5.0.0",
-    "openai>=1.0.0",
     "sentence-transformers>=2.2.0",
     "pydantic>=2.0.0",
-    "watchdog>=3.0.0",
-    "python-frontmatter>=1.0.0",
+    "pyyaml>=6.0.0",
     "httpx>=0.25.0",
-    "rich>=13.0.0",
 ]
 
 [project.optional-dependencies]
+neo4j = [
+    "neo4j>=5.0.0",
+]
+openai = [
+    "openai>=1.0.0",
+]
 dev = [
     "pytest>=7.0.0",
     "pytest-asyncio>=0.21.0",
@@ -32,23 +33,30 @@ dev = [
     "ruff>=0.1.0",
     "mypy>=1.0.0",
 ]
+all = [
+    "polymath-mcp[neo4j,openai,dev]",
+]
+
+[project.scripts]
+polymath-mcp = "src.server:main"
+polymath-index = "scripts.index_knowledge:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src"]
+packages = ["src", "scripts"]
 
 [tool.black]
 line-length = 100
-target-version = ['py311']
+target-version = ['py310', 'py311', 'py312']
 
 [tool.ruff]
 line-length = 100
 select = ["E", "F", "I", "N", "W"]
 
 [tool.mypy]
-python_version = "3.11"
+python_version = "3.10"
 warn_return_any = true
 warn_unused_ignores = true

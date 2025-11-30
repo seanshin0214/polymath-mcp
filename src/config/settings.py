@@ -10,6 +10,16 @@ from dataclasses import dataclass, field
 from typing import Optional
 
 
+def get_base_path() -> Path:
+    """프로젝트 루트 경로 반환"""
+    # 1. 환경 변수에서
+    if env_path := os.getenv("POLYMATH_BASE_PATH"):
+        return Path(env_path)
+
+    # 2. 파일 위치 기반
+    return Path(__file__).parent.parent.parent
+
+
 @dataclass
 class Settings:
     """
@@ -18,59 +28,66 @@ class Settings:
     환경 변수에서 설정을 로드하거나 기본값 사용
     """
 
-    # Paths
-    base_path: Path = field(default_factory=lambda: Path(__file__).parent.parent.parent)
-    chroma_path: Path = field(default_factory=lambda: Path("./data/chroma"))
-    obsidian_vault_path: Path = field(default_factory=lambda: Path("./knowledge"))
+    # Paths - 기본값은 __post_init__에서 설정
+    base_path: Path = field(default_factory=get_base_path)
+    chroma_path: Optional[Path] = None
+    knowledge_path: Optional[Path] = None
 
-    # Neo4j
+    # Neo4j (optional)
     neo4j_uri: str = "bolt://localhost:7687"
     neo4j_user: str = "neo4j"
     neo4j_password: str = "password"
 
-    # OpenAI (for embeddings)
+    # OpenAI (for embeddings - optional)
     openai_api_key: Optional[str] = None
     embedding_model: str = "text-embedding-3-small"
 
-    # Sentence Transformers (alternative embeddings)
+    # Sentence Transformers (alternative embeddings - recommended)
     use_local_embeddings: bool = True
     local_embedding_model: str = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
-
-    # Obsidian sync
-    watch_vault: bool = True
-    sync_interval_seconds: int = 60
 
     # Dialogue settings
     default_dialogue_mode: str = "hybrid"
     default_depth: str = "medium"
 
     # RAG settings
-    vector_weight: float = 0.6  # Weight for vector search in hybrid
-    graph_weight: float = 0.4  # Weight for graph search in hybrid
+    vector_weight: float = 0.6
+    graph_weight: float = 0.4
     max_results: int = 10
     similarity_threshold: float = 0.3
 
     def __post_init__(self):
-        """환경 변수에서 설정 로드"""
-        # Load from environment variables
+        """환경 변수에서 설정 로드 및 경로 초기화"""
+
+        # Set base path from environment if provided
+        if env_base := os.getenv("POLYMATH_BASE_PATH"):
+            self.base_path = Path(env_base)
+
+        # Set derived paths
+        if self.chroma_path is None:
+            chroma_env = os.getenv("CHROMA_PATH")
+            if chroma_env:
+                self.chroma_path = Path(chroma_env)
+            else:
+                self.chroma_path = self.base_path / "data" / "chroma"
+
+        if self.knowledge_path is None:
+            knowledge_env = os.getenv("KNOWLEDGE_PATH")
+            if knowledge_env:
+                self.knowledge_path = Path(knowledge_env)
+            else:
+                self.knowledge_path = self.base_path / "knowledge"
+
+        # Neo4j settings (optional)
         self.neo4j_uri = os.getenv("NEO4J_URI", self.neo4j_uri)
         self.neo4j_user = os.getenv("NEO4J_USER", self.neo4j_user)
         self.neo4j_password = os.getenv("NEO4J_PASSWORD", self.neo4j_password)
 
+        # OpenAI
         self.openai_api_key = os.getenv("OPENAI_API_KEY")
-
-        # Paths from environment
-        vault_path = os.getenv("OBSIDIAN_VAULT_PATH")
-        if vault_path:
-            self.obsidian_vault_path = Path(vault_path)
-
-        chroma_path = os.getenv("CHROMA_PATH")
-        if chroma_path:
-            self.chroma_path = Path(chroma_path)
 
         # Boolean settings
         self.use_local_embeddings = os.getenv("USE_LOCAL_EMBEDDINGS", "true").lower() == "true"
-        self.watch_vault = os.getenv("WATCH_VAULT", "true").lower() == "true"
 
         # Numeric settings
         try:
@@ -87,8 +104,9 @@ class Settings:
         errors = []
 
         # Check required paths
-        if not self.obsidian_vault_path.exists():
-            errors.append(f"Obsidian vault not found: {self.obsidian_vault_path}")
+        if not self.knowledge_path.exists():
+            print(f"Warning: Knowledge path not found: {self.knowledge_path}")
+            # Not a hard error - can be created later
 
         # Check embeddings configuration
         if not self.use_local_embeddings and not self.openai_api_key:
@@ -106,11 +124,13 @@ class Settings:
         return {
             "base_path": str(self.base_path),
             "chroma_path": str(self.chroma_path),
-            "obsidian_vault_path": str(self.obsidian_vault_path),
+            "knowledge_path": str(self.knowledge_path),
             "neo4j_uri": self.neo4j_uri,
             "use_local_embeddings": self.use_local_embeddings,
-            "watch_vault": self.watch_vault,
             "default_dialogue_mode": self.default_dialogue_mode,
             "vector_weight": self.vector_weight,
             "graph_weight": self.graph_weight,
         }
+
+    def __repr__(self) -> str:
+        return f"Settings(base={self.base_path}, chroma={self.chroma_path}, knowledge={self.knowledge_path})"

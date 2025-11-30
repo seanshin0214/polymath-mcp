@@ -1,93 +1,149 @@
 # Polymath MCP
 
-> **컨셉공학을 위한 융합적 사고 지원 시스템**
->
+**Your Second Brain for Interdisciplinary Knowledge**
+
 > 30개 학문 분야의 지식을 융합하여 새로운 개념 창조를 지원하는 MCP 서버
 
-## Overview
+## Features
 
-Polymath MCP는 단순한 RAG를 넘어, **융합적 사고(Fusion Thinking)**와 **소크라테스적 대화(Socratic Dialogue)**를 통해 연구자가 새로운 개념을 창조할 수 있도록 지원합니다.
-
-### 핵심 특징
-
-- **Fusion Engine**: 7가지 융합 패턴으로 분야 간 연결 탐지
-- **Socratic Engine**: 답을 주지 않고 질문으로 이끄는 탐구적 대화
-- **3층 지식 구조**: 개념 → 융합 패턴 → 융합 사례
-- **Obsidian 연동**: 인간이 큐레이션, AI가 확장
-
-## 7가지 융합 사고 패턴
-
-| 패턴 | 설명 | 예시 |
-|------|------|------|
-| **은유적 전이** | A는 B와 같다 | 조직=유기체 |
-| **구조적 동형** | 같은 구조, 다른 분야 | 진화 알고리즘 |
-| **전제 전복** | A가 B의 전제 공격 | 행동경제학 |
-| **스케일 점프** | 미시↔거시 이동 | 창발 |
-| **시간축 변환** | 단기↔장기 원리 이동 | 문화 진화 |
-| **경계 개념** | 여러 분야 공유 개념 | 네트워크, 정보 |
-| **변증법적 종합** | 대립의 통합 | 구조-행위자 이중성 |
-
-## Installation
-
-```bash
-# Clone the repository
-git clone https://github.com/yourusername/polymath-mcp.git
-cd polymath-mcp
-
-# Install dependencies
-pip install -e ".[dev]"
-
-# Set up environment variables
-cp .env.example .env
-# Edit .env with your API keys
-```
+- **Semantic Search**: ChromaDB 기반 시맨틱 검색으로 30+ 학문 분야의 개념 탐색
+- **7 Fusion Patterns**: 은유적 전이, 구조적 동형, 전제 전복 등 7가지 융합 사고 패턴
+- **Socratic Dialogue**: 소크라테스적 대화를 통한 깊은 탐구
+- **Knowledge Addition**: 새로운 지식을 RAG 시스템에 동적 추가
+- **Cross-Domain Bridges**: 분야 간 연결점 발견 및 융합 가능성 분석
 
 ## Quick Start
 
+### 1. Install Dependencies
+
 ```bash
-# Run the MCP server
-python -m src.server
+cd polymath-mcp
+pip install -e .
 ```
 
-## MCP Tools
+### 2. Index Knowledge Documents
 
-### 탐구 도구 (Exploration)
-- `search_concepts` - 개념 검색 (하이브리드)
-- `trace_lineage` - 개념의 지적 계보 추적
-- `get_fusion_cases` - 성공적 융합 사례 검색
+```bash
+python scripts/index_knowledge.py --clear
+```
 
-### 융합 도구 (Fusion)
-- `find_bridges` - 다른 분야와의 연결점 탐색
+### 3. Configure Claude Desktop
+
+Edit your Claude Desktop config file:
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+- Mac: `~/Library/Application Support/Claude/claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "polymath": {
+      "command": "python",
+      "args": ["-m", "src.server"],
+      "cwd": "C:\\Users\\sshin\\Documents\\polymath-mcp",
+      "env": {
+        "POLYMATH_BASE_PATH": "C:\\Users\\sshin\\Documents\\polymath-mcp"
+      }
+    }
+  }
+}
+```
+
+### 4. Restart Claude Desktop
+
+## Available Tools
+
+### Core Search
+- `search_concepts` - 개념 검색 (시맨틱 유사성 기반)
+- `find_bridges` - 분야 간 연결점 발견
+
+### Fusion Thinking
 - `suggest_fusion` - 두 개념의 융합 가능성 분석
-- `find_structural_analogies` - 구조적 유사성 탐지
-- `evaluate_novelty` - 신규성 평가
+- `get_fusion_patterns` - 7가지 융합 사고 패턴 정보
 
-### 소크라테스 대화 도구 (Socratic)
-- `socratic_dialogue` - 소크라테스적 탐구 대화
-- `challenge_premise` - 전제 도전
-- `explore_viewpoints` - 다양한 관점 탐색
+### Socratic Dialogue
+- `socratic_dialogue` - 소크라테스적 대화 탐구
+- `challenge_premise` - 숨겨진 전제 도전
+
+### Knowledge Management
+- `add_knowledge` - 새 지식 문서 추가 (RAG에 동적 인덱싱)
+- `get_stats` - 지식 베이스 통계
+
+### Utility
+- `get_domains` - 사용 가능한 학문 분야 목록
+- `set_dialogue_mode` - 대화 모드 설정
+
+## 7가지 융합 사고 패턴
+
+| 패턴 | 설명 | 핵심 질문 |
+|------|------|----------|
+| **은유적 전이** | A를 B로 생각하기 | "X를 Y처럼 생각하면?" |
+| **구조적 동형** | 다른 분야의 동일 구조 발견 | "어떤 구조가 반복되는가?" |
+| **전제 전복** | 다른 분야 관점에서 전제 도전 | "B 분야는 A의 전제를 어떻게 볼까?" |
+| **스케일 점프** | 미시/거시 수준에서 동일 원리 | "이 패턴이 다른 스케일에서도?" |
+| **시간축 변환** | 다른 시간 척도로 현상 관찰 | "다른 시간 척도에선?" |
+| **경계 개념** | 분야를 가로지르는 개념 활용 | "어떤 개념이 분야의 경계에?" |
+| **변증법적 종합** | 대립 관점의 초월적 통합 | "테제와 안티테제를 어떻게 초월?" |
+
+## Knowledge Structure
+
+```
+knowledge/
+├── 00-Fusion-Patterns/     # 7가지 융합 사고 패턴
+├── 01-Fusion-Cases/        # 역사적 융합 사례 (7개)
+├── 02-Concepts/            # 핵심 크로스도메인 개념 (5개)
+├── 03-Polymaths/           # 위대한 폴리매스 프로필 (5인)
+└── 04-Big-Questions/       # 분야를 넘는 큰 질문 (5개)
+```
+
+## Adding Your Own Knowledge
+
+### Option 1: Using the `add_knowledge` Tool
+
+```
+add_knowledge(
+  content="Your knowledge content in markdown...",
+  name="Concept Name",
+  domain="philosophy",
+  tags=["tag1", "tag2"]
+)
+```
+
+### Option 2: Add Markdown Files
+
+1. Add markdown files to `knowledge/` directory
+2. Re-index: `python scripts/index_knowledge.py`
+
+## Environment Variables
+
+| Variable | Description | Default |
+|----------|-------------|---------|
+| `POLYMATH_BASE_PATH` | Project root path | Auto-detect |
+| `CHROMA_PATH` | ChromaDB storage path | `./data/chroma` |
+| `KNOWLEDGE_PATH` | Knowledge documents path | `./knowledge` |
+| `USE_LOCAL_EMBEDDINGS` | Use local sentence-transformers | `true` |
+| `USE_NEO4J` | Enable Neo4j graph store (optional) | `false` |
 
 ## Architecture
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                  POLYMATH MCP SERVER                     │
-├─────────────────────────────────────────────────────────┤
-│  MCP Tools Layer                                         │
-│  ├─ Exploration Tools                                    │
-│  ├─ Fusion Tools                                         │
-│  └─ Socratic Tools                                       │
-├─────────────────────────────────────────────────────────┤
-│  Core Engines                                            │
-│  ├─ Fusion Engine (패턴 매칭, 구조 분석)                 │
-│  ├─ Socratic Engine (질문 생성, 대화 관리)              │
-│  └─ RAG Pipeline (하이브리드 검색)                       │
-├─────────────────────────────────────────────────────────┤
-│  Data Layer                                              │
-│  ├─ ChromaDB (Vector Store)                             │
-│  ├─ Neo4j (Graph DB)                                    │
-│  └─ Obsidian Sync (File Watch)                          │
-└─────────────────────────────────────────────────────────┘
+┌─────────────────────────────────────────┐
+│             Claude Desktop              │
+└─────────────────┬───────────────────────┘
+                  │ MCP Protocol
+┌─────────────────▼───────────────────────┐
+│           Polymath MCP Server           │
+├─────────────────────────────────────────┤
+│  Tools: search, fusion, socratic, etc.  │
+├─────────────────────────────────────────┤
+│           RAG Pipeline                  │
+│  ┌─────────────┐  ┌─────────────────┐   │
+│  │  ChromaDB   │  │  Neo4j (opt)    │   │
+│  │  (Vector)   │  │  (Graph)        │   │
+│  └─────────────┘  └─────────────────┘   │
+├─────────────────────────────────────────┤
+│         Knowledge Documents             │
+│    (Markdown with YAML frontmatter)     │
+└─────────────────────────────────────────┘
 ```
 
 ## Knowledge Domains (30개 분야)
@@ -99,14 +155,17 @@ python -m src.server
 양자물리학, 고전물리학, 천문학, 지구과학, 생물학, 화학
 
 ### 인문사회과학
-철학, 역사, 사회학, 심리학, 조직심리학, 인류학, 경제학, 법학, 정의론, 종교학, 교육학, 행정학, 인문학
+철학, 역사, 사회학, 심리학, 인류학, 경제학, 정치학, 법학, 언어학
 
 ### 응용/공학
-AI/ML, 로봇공학, BCI, 경영학, 이노베이션, 앙트레프레너십, 리더십, 예술/미학
+AI/ML, 공학, 의학, 경영학, 인지과학, 정보이론, 게임이론, 네트워크과학
 
 ## Development
 
 ```bash
+# Install with dev dependencies
+pip install -e ".[dev]"
+
 # Run tests
 pytest
 
@@ -118,17 +177,6 @@ ruff check src tests
 mypy src
 ```
 
-## Roadmap
-
-- [x] Phase 0: 기획 완료
-- [ ] Phase 1: MVP (4주) - 기본 RAG + 5개 분야
-- [ ] Phase 2: 확장 (6주) - 소크라테스 엔진 + 30개 분야
-- [ ] Phase 3: 고도화 (8주) - 커뮤니티 + AI 새 연결 생성
-
 ## License
 
 MIT License
-
-## Contributing
-
-Contributions are welcome! Please read our contributing guidelines first.

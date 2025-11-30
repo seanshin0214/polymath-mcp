@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "polymath": {
+      "command": "python",
+      "args": ["-m", "src.server"],
+      "cwd": "C:\\Users\\sshin\\Documents\\polymath-mcp",
+      "env": {
+        "POLYMATH_BASE_PATH": "C:\\Users\\sshin\\Documents\\polymath-mcp",
+        "USE_LOCAL_EMBEDDINGS": "true"
+      }
+    }
+  }
+}
