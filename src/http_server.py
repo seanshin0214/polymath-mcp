@@ -483,6 +483,137 @@ async def export_session(
         return {"format": "markdown", "content": exported}
 
 
+# ===== GPT Actions 전용 OpenAPI =====
+
+@app.get("/gpt-openapi.json")
+async def gpt_openapi():
+    """GPT Actions용 간소화된 OpenAPI 스펙"""
+    return {
+        "openapi": "3.1.0",
+        "info": {
+            "title": "Polymath API",
+            "description": "Interdisciplinary knowledge fusion API",
+            "version": "2.0.0"
+        },
+        "servers": [{"url": "https://seanshin-mcp.ngrok.io"}],
+        "paths": {
+            "/api/search": {
+                "get": {
+                    "operationId": "searchConcepts",
+                    "summary": "Search concepts across 30 academic domains",
+                    "parameters": [
+                        {"name": "q", "in": "query", "required": True, "schema": {"type": "string"}},
+                        {"name": "limit", "in": "query", "schema": {"type": "integer", "default": 10}}
+                    ],
+                    "responses": {"200": {"description": "Search results"}}
+                }
+            },
+            "/api/domains": {
+                "get": {
+                    "operationId": "getDomains",
+                    "summary": "List 30 academic domains",
+                    "responses": {"200": {"description": "Domain list"}}
+                }
+            },
+            "/api/fusion/patterns": {
+                "get": {
+                    "operationId": "getFusionPatterns",
+                    "summary": "Get 7 fusion thinking patterns",
+                    "responses": {"200": {"description": "Fusion patterns"}}
+                }
+            },
+            "/api/fusion/suggest": {
+                "post": {
+                    "operationId": "suggestFusion",
+                    "summary": "Analyze fusion between two concepts",
+                    "requestBody": {
+                        "required": True,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": ["concept_a", "concept_b"],
+                                    "properties": {
+                                        "concept_a": {"type": "string"},
+                                        "concept_b": {"type": "string"}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses": {"200": {"description": "Fusion analysis"}}
+                }
+            },
+            "/api/socratic/start": {
+                "post": {
+                    "operationId": "startSocratic",
+                    "summary": "Start a Socratic dialogue session",
+                    "requestBody": {
+                        "required": True,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": ["topic"],
+                                    "properties": {
+                                        "topic": {"type": "string"},
+                                        "focus": {"type": "string", "default": "explore"}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses": {"200": {"description": "Session info with questions"}}
+                }
+            },
+            "/api/socratic/continue": {
+                "post": {
+                    "operationId": "continueSocratic",
+                    "summary": "Continue Socratic dialogue",
+                    "requestBody": {
+                        "required": True,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": ["session_id", "response"],
+                                    "properties": {
+                                        "session_id": {"type": "string"},
+                                        "response": {"type": "string"}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses": {"200": {"description": "Next questions"}}
+                }
+            },
+            "/api/learning/path": {
+                "post": {
+                    "operationId": "getLearningPath",
+                    "summary": "Generate personalized learning path",
+                    "requestBody": {
+                        "required": True,
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "required": ["start_concept"],
+                                    "properties": {
+                                        "start_concept": {"type": "string"},
+                                        "path_type": {"type": "string", "default": "spiral"}
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "responses": {"200": {"description": "Learning path"}}
+                }
+            }
+        }
+    }
+
+
 # ===== 도메인 정보 API =====
 
 @app.get("/api/domains")
