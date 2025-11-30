@@ -1,10 +1,10 @@
 # Polymath MCP 지식 채우기 체크리스트
 
-> 마지막 업데이트: 2024-11-30
+> 마지막 업데이트: 2025-11-30
 
 ---
 
-## 완료된 문서 (29개)
+## 완료된 문서 (31개)
 
 ### 00-Fusion-Patterns (7/7)
 - [x] metaphorical-transfer (은유적 전이)
@@ -24,14 +24,14 @@
 - [x] computational-neuroscience (계산신경과학)
 - [x] bioinformatics (생물정보학)
 
-### 02-Concepts (5/20 목표)
+### 02-Concepts (7/20 목표)
 - [x] entropy (엔트로피)
 - [x] equilibrium (평형)
 - [x] emergence (창발)
 - [x] feedback (피드백)
 - [x] optimization (최적화)
-- [ ] information (정보)
-- [ ] complexity (복잡성)
+- [x] information (정보)
+- [x] complexity (복잡성) ← NEW!
 - [ ] self-organization (자기조직화)
 - [ ] causation (인과성)
 - [ ] hierarchy (위계)
@@ -165,13 +165,13 @@
 |----------|------|------|--------|
 | 00-Fusion-Patterns | 7 | 7 | 100% |
 | 01-Fusion-Cases | 7 | 7 | 100% |
-| 02-Concepts | 5 | 20 | 25% |
+| 02-Concepts | 7 | 20 | 35% |
 | 03-Polymaths | 5 | 15 | 33% |
 | 04-Big-Questions | 5 | 10 | 50% |
 | 05-Domains | 0 | 30 | 0% |
 | 06-Theories | 0 | 20 | 0% |
 | 07-Methods | 0 | 15 | 0% |
-| **전체** | **29** | **124** | **23%** |
+| **전체** | **31** | **124** | **25%** |
 
 ---
 
