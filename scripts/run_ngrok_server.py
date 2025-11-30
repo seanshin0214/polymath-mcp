@@ -219,7 +219,8 @@ def main():
     print("[*] Starting ngrok tunnel...")
 
     try:
-        public_url = ngrok.connect(PORT, "http")
+        # Use paid custom domain
+        public_url = ngrok.connect(PORT, "http", domain="seanshin-mcp.ngrok.io")
         ngrok_url = str(public_url.public_url)
 
         print(f"""
