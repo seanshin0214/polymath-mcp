@@ -7,6 +7,7 @@ ChromaDB (벡터) 기반 검색 (Neo4j 옵션)
 from typing import List, Optional, Any, Dict
 from dataclasses import dataclass
 import os
+import sys
 
 from src.models.concept import Concept, ConceptLineage
 from src.models.fusion import FusionCase
@@ -49,14 +50,14 @@ class RAGPipeline:
                 self.graph_store = Neo4jStore(self.settings)
                 await self.graph_store.initialize()
                 self.use_graph = True
-                print("Neo4j graph store initialized")
+                print("Neo4j graph store initialized", file=sys.stderr)
         except Exception as e:
-            print(f"Neo4j not available (optional): {e}")
+            print(f"Neo4j not available (optional): {e}", file=sys.stderr)
             self.graph_store = None
             self.use_graph = False
 
         self.initialized = True
-        print(f"RAG Pipeline initialized (graph={self.use_graph})")
+        print(f"RAG Pipeline initialized (graph={self.use_graph})", file=sys.stderr)
 
     async def search(
         self,
@@ -94,10 +95,33 @@ class RAGPipeline:
                 fused = self._fuse_results(vector_results, graph_results)
                 return fused[:limit]
             except Exception as e:
-                print(f"Graph search failed, using vector only: {e}")
+                print(f"Graph search failed, using vector only: {e}", file=sys.stderr)
 
         # Vector only
         return vector_results[:limit]
+
+    async def search_by_name(
+        self,
+        name: str,
+        limit: int = 5
+    ) -> List[Concept]:
+        """
+        이름 기반 검색 (정확한 매칭 우선, 시맨틱 검색 폴백)
+
+        Args:
+            name: 검색할 개념 이름
+            limit: 결과 수 제한
+
+        Returns:
+            검색된 개념 목록
+        """
+        # 1. Try exact/partial name match first
+        name_results = await self.vector_store.search_by_name(name, limit)
+        if name_results:
+            return name_results
+
+        # 2. Fall back to semantic search
+        return await self.search(query=name, limit=limit)
 
     async def get_concept(self, concept_id: str) -> Optional[Concept]:
         """단일 개념 조회"""
@@ -314,20 +338,18 @@ class RAGPipeline:
         # Generate ID
         doc_id = metadata.get('id') or hashlib.md5(content.encode()).hexdigest()[:12]
 
-        # Create concept
+        # Create concept (description is a @property, not a constructor arg)
         concept = Concept(
             id=doc_id,
             name=metadata.get('name', 'Untitled'),
             domain=metadata.get('domain', 'general'),
-            description=content[:500],
-            full_text=content,
-            category=metadata.get('category', 'user-added')
+            full_text=content
         )
 
         # Add to vector store
         await self.vector_store.add_concept(concept)
 
-        print(f"Added document: {doc_id} ({concept.name})")
+        print(f"Added document: {doc_id} ({concept.name})", file=sys.stderr)
         return doc_id
 
     async def get_stats(self) -> Dict[str, Any]:

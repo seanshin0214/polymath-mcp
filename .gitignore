@@ -34,8 +34,8 @@ ENV/
 *.swo
 *~
 
-# Data directories
-data/
+# Data directories (only top-level)
+/data/
 *.db
 *.sqlite
 

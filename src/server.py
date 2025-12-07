@@ -6,7 +6,27 @@ Your Second Brain for Interdisciplinary Knowledge
 """
 
 import json
+import sys
+import os
+import logging
 from typing import Optional
+
+# ============================================================================
+# CRITICAL: MCP uses stdout for JSON-RPC communication
+# ALL other output MUST go to stderr
+# ============================================================================
+
+# Suppress all logging to stdout - redirect to stderr
+logging.basicConfig(
+    level=logging.WARNING,
+    format='%(name)s - %(levelname)s - %(message)s',
+    stream=sys.stderr
+)
+
+# Suppress noisy loggers
+for logger_name in ['neo4j', 'httpx', 'httpcore', 'chromadb', 'onnxruntime', 'sentence_transformers']:
+    logging.getLogger(logger_name).setLevel(logging.ERROR)
+
 from mcp.server import Server
 from mcp.server.stdio import stdio_server
 from mcp.types import Tool, TextContent
@@ -42,7 +62,7 @@ async def initialize():
     # Initialize Socratic Engine
     socratic_engine = SocraticEngine(rag_pipeline, fusion_engine)
 
-    print("Polymath MCP initialized successfully!")
+    print("Polymath MCP initialized successfully!", file=sys.stderr)
 
 
 @server.list_tools()
@@ -300,9 +320,9 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
         )]
 
     elif name == "find_bridges":
-        # First search for the concept
-        concept_results = await rag_pipeline.search(
-            query=arguments["concept"],
+        # First search for the concept by name (exact match first, then semantic)
+        concept_results = await rag_pipeline.search_by_name(
+            name=arguments["concept"],
             limit=1
         )
 
@@ -340,9 +360,9 @@ async def call_tool(name: str, arguments: dict) -> list[TextContent]:
         return [TextContent(type="text", text="\n".join(formatted))]
 
     elif name == "suggest_fusion":
-        # Search for both concepts
-        results_a = await rag_pipeline.search(arguments["concept_a"], limit=1)
-        results_b = await rag_pipeline.search(arguments["concept_b"], limit=1)
+        # Search for both concepts by name (exact match first, then semantic)
+        results_a = await rag_pipeline.search_by_name(arguments["concept_a"], limit=1)
+        results_b = await rag_pipeline.search_by_name(arguments["concept_b"], limit=1)
 
         if not results_a or not results_b:
             return [TextContent(
